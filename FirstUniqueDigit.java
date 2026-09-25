@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FirstUniqueDigit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter a number: ");
+        int num = sc.nextInt();
+
+        List<Integer> list = new ArrayList<>();
+
+        for(int i = 0 ; i <= 9 ; i++){
+            int temp = num;
+            int count = 0;
+            while(temp > 0){
+                int digit = temp % 10;
+                if(digit == i){
+                    count++;
+                }   
+                temp /= 10;
+            }
+            if(count == 1){
+                list.add(i);
+            }
+        }
+
+        System.out.println(list.get(list.size()-1));
+
+    }
+}
